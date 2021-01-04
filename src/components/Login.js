@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import fire from "../config/Firebase";
+import SignUp from "./SignUp";
 
 const Login = () => {
   const [info, setInfo] = useState({
@@ -7,8 +8,9 @@ const Login = () => {
     password: "",
   });
 
+  const [logOrSign, setLogOrSign] = useState(true);
+
   const handleChange = (e) => {
-    console.log("changing...");
     const { name, value } = e.target;
     setInfo((prevState) => ({
       ...prevState,
@@ -27,40 +29,35 @@ const Login = () => {
       });
   };
 
-  const signup = (e) => {
-    e.preventDefault();
-    fire
-      .auth()
-      .createUserWithEmailAndPassword(info.email, info.password)
-      .then((u) => {})
-      .catch((error) => {
-        console.log(error);
-      });
+  const toggleSignUp = () => {
+    setLogOrSign((x) => !x);
   };
 
-  useEffect(() => {
-    console.log(info);
-  }, [handleChange]);
-
   return (
-    <div className="login-container">
-      <h2>Log In to Twitter</h2>
-      <input
-        type="text"
-        id="input-email"
-        name="email"
-        onChange={handleChange}
-        placeholder="Email Address"
-      ></input>
-      <input
-        type="password"
-        id="input-password"
-        name="password"
-        onChange={handleChange}
-        placeholder="Password"
-      ></input>
-      <button onClick={login}>Login</button>
-      <button onClick={signup}>Sign Up</button>
+    <div className="entry-container">
+      {logOrSign ? (
+        <div className="login-container">
+          <h2>Log In to Twitter</h2>
+          <input
+            type="text"
+            id="input-email"
+            name="email"
+            onChange={handleChange}
+            placeholder="Email Address"
+          ></input>
+          <input
+            type="password"
+            id="input-password"
+            name="password"
+            onChange={handleChange}
+            placeholder="Password"
+          ></input>
+          <button onClick={login}>Login</button>
+          <button onClick={toggleSignUp}>Don't Have An Account? Sign Up</button>
+        </div>
+      ) : (
+        <SignUp />
+      )}
     </div>
   );
 };

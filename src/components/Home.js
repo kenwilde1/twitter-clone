@@ -1,4 +1,6 @@
 import fire from "../config/Firebase";
+import Tweet from "./Tweet";
+import TweetContainer from "./TweetContainer";
 
 const Home = () => {
   const logout = () => {
@@ -9,6 +11,8 @@ const Home = () => {
     <div className="home-container">
       <h1>HOME</h1>
       <button onClick={logout}>Log Out</button>
+      <Tweet />
+      <TweetContainer />
     </div>
   );
 };
