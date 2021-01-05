@@ -1,5 +1,6 @@
 import fire from "../config/Firebase";
 import { useState, useEffect } from "react";
+import user from "../user.png";
 
 const TweetContainer = () => {
   const [tweets, setTweets] = useState([
@@ -22,10 +23,16 @@ const TweetContainer = () => {
             timestamp: doc.id,
             text: doc.data().tweet,
             likes: doc.data().likes,
+            email: fire.auth().currentUser.email,
+            name: fire.auth().currentUser.displayName,
           },
         ]);
       });
     });
+  };
+
+  const getHandle = (string) => {
+    return string.substr(0, string.indexOf("@"));
   };
 
   useEffect(() => {
@@ -34,18 +41,28 @@ const TweetContainer = () => {
 
   useEffect(() => {
     console.log(tweets);
+    console.log(fire.auth().currentUser.displayName);
   }, [tweets]);
 
   return (
     <div className="tweet-container-container">
-      <h3>Tweets:</h3>
       {tweets
         .sort((a, b) => (a.timestamp < b.timestamp ? 1 : -1))
         .map((tweet) => (
           <div className="tweet">
-            <h4>{tweet.timestamp}</h4>
-            <p>{tweet.text}</p>
-            <p>{tweet.likes}</p>
+            <div className="tweet-header">
+              <img src={user} alt="profile" className="tweet-profile"></img>
+              <h4>{tweet.name}</h4>
+              <p>@{tweet.email}</p>
+              <p>{tweet.timestamp}</p>
+            </div>
+            <div className="tweet-content">
+              <p>{tweet.text}</p>
+            </div>
+            <div className="tweet-interact">
+              <i class="far fa-heart"></i>
+              <p>{tweet.likes}</p>
+            </div>
           </div>
         ))}
     </div>

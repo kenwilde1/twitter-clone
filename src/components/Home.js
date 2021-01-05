@@ -1,16 +1,12 @@
-import fire from "../config/Firebase";
 import Tweet from "./Tweet";
 import TweetContainer from "./TweetContainer";
 
 const Home = () => {
-  const logout = () => {
-    fire.auth().signOut();
-  };
-
   return (
     <div className="home-container">
-      <h1>HOME</h1>
-      <button onClick={logout}>Log Out</button>
+      <div className="home-header">
+        <h4>Home</h4>
+      </div>
       <Tweet />
       <TweetContainer />
     </div>

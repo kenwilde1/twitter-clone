@@ -4,10 +4,13 @@ import { useState, useEffect } from "react";
 const SignUp = () => {
   const [userInfo, setUserInfo] = useState({
     name: "",
-    handle: "",
     email: "",
     password: "",
   });
+
+  const handle = userInfo.email
+    .toString()
+    .substr(0, userInfo.email.indexOf("@"));
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,20 +25,19 @@ const SignUp = () => {
     fire
       .auth()
       .createUserWithEmailAndPassword(userInfo.email, userInfo.password)
-      .then((u) => {})
+      .then((result) => {
+        return result.user.updateProfile({
+          displayName: userInfo.name,
+        });
+      })
       .catch((error) => {
         console.log(error);
       });
 
-    fire
-      .firestore()
-      .collection("master-collection")
-      .doc("user-data")
-      .collection(`${userInfo.handle}`)
-      .doc(`data`)
-      .set({
-        name: userInfo.name,
-      });
+    fire.firestore().collection("user-data").doc(`${userInfo.email}`).set({
+      name: userInfo.name,
+      handle: handle,
+    });
   };
 
   return (
@@ -47,13 +49,6 @@ const SignUp = () => {
         name="name"
         onChange={handleChange}
         placeholder="Full Name"
-      ></input>
-      <input
-        type="text"
-        id="input-handle"
-        name="handle"
-        onChange={handleChange}
-        placeholder="Unique Twitter Handle"
       ></input>
       <input
         type="text"

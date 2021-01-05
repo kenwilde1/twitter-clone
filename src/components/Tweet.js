@@ -1,5 +1,6 @@
 import fire from "../config/Firebase";
 import { useEffect, useState } from "react";
+import user from "../user.png";
 
 const Tweet = () => {
   const [tweet, setTweet] = useState("");
@@ -22,13 +23,18 @@ const Tweet = () => {
 
   return (
     <div className="tweet-container">
-      <input
-        type="textarea"
-        id="input-tweet"
-        onChange={handleChange}
-        placeholder="What are you thinking?"
-      ></input>
-      <button onClick={createTweet}>Tweet</button>
+      <div className="tweet-container-one">
+        <img src={user} alt="profile" className="profile-pic"></img>
+        <input
+          type="textarea"
+          id="input-tweet"
+          onChange={handleChange}
+          placeholder="What's happening?"
+        ></input>
+      </div>
+      <div className="tweet-container-two">
+        <button onClick={createTweet}>Tweet</button>
+      </div>
     </div>
   );
 };
