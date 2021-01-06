@@ -12,7 +12,7 @@
 
 .sidebar-container {
   height: 100vh;
-  min-width: 30vw;
+  min-width: 33vw;
   border-right: 1px solid lightgray;
   background: white;
 }
@@ -45,10 +45,6 @@ li:hover {
 .logo {
   color: #1da1f2;
   width: 21%;
-}
-
-.searchbar-container {
-  margin: 30px 0 30px 0;
 }
 
 .user-search-result {
@@ -94,7 +90,7 @@ li:hover {
 }
 
 .home-container {
-  min-width: 30vw;
+  min-width: 33vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -167,6 +163,8 @@ li:hover {
   flex-direction: column;
   gap: 0.5rem;
   width: 100%;
+  overflow: auto;
+  height: 80vh;
 }
 
 .tweet {
@@ -203,4 +201,54 @@ li:hover {
 
 .tweet-interact:hover {
   color: crimson;
+}
+
+.searchbar-container {
+  margin: 15px;
+  width: 55%;
+  height: 7vh;
+  position: relative;
+}
+
+.searchbar-container input {
+  border: none;
+
+  border-radius: 45px;
+  font-size: 14px;
+  outline: none;
+  padding: 10px 10px;
+  width: 100%;
+  background: rgba(225, 232, 237, 0.5);
+  font-weight: bold;
+  text-indent: 30px;
+}
+
+.fa-search {
+  position: absolute;
+  top: 10px;
+  left: 7px;
+  color: gray;
+}
+
+.trending-container {
+  height: 100vh;
+  border: 1px solid black;
+  min-width: 33vw;
+}
+
+.trending {
+  margin: 0px 15px 15px 15px;
+  width: 55%;
+  height: 60vh;
+  background: rgba(225, 232, 237, 0.5);
+  border-radius: 30px;
+}
+
+.trending h3 {
+  font-size: 1.6rem;
+  padding: 15px 0px 5px 20px;
+}
+
+.trending-header {
+  border-bottom: 1px solid lightgray;
 }

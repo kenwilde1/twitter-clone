@@ -1,4 +1,10 @@
+import fire from "../config/Firebase";
+
 const SideBar = () => {
+  const logout = () => {
+    fire.auth().signOut();
+  };
+
   return (
     <div className="sidebar-container">
       <div className="sidebar-list-container">
@@ -31,6 +37,9 @@ const SideBar = () => {
           </li>
           <li>
             <i class="fas fa-ellipsis-h"></i>More
+          </li>
+          <li>
+            <button onClick={logout}>Log Out</button>
           </li>
         </ul>
       </div>

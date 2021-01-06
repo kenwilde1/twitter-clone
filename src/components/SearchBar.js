@@ -32,12 +32,13 @@ const SearchBar = () => {
 
   return (
     <div className="searchbar-container">
+      <span class="fa fa-search"></span>
       <input
         type="text"
         onChange={(e) => {
           setSearchTerm(e.target.value);
         }}
-        placeholder="Search"
+        placeholder="Search Twitter"
       ></input>
       {searchTerm !== ""
         ? users

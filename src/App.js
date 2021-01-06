@@ -5,6 +5,7 @@ import fire from "./config/Firebase";
 import NavBar from "./components/NavBar";
 import SideBar from "./components/SideBar";
 import { useState, useEffect } from "react";
+import Trending from "./components/Trending";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -27,6 +28,7 @@ function App() {
     <div className="App">
       <SideBar />
       {user ? <Home /> : <Login />}
+      <Trending />
     </div>
   );
 }
