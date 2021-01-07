@@ -8,6 +8,9 @@
 .App {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .sidebar-container {
@@ -48,12 +51,12 @@ li:hover {
 }
 
 .user-search-result {
-  border: 1px solid black;
   display: flex;
   flex-direction: column;
   gap: 1rem;
   padding: 5px;
   background: white;
+  border: 1px solid lightgray;
 }
 
 .user-search-handle {
@@ -66,7 +69,6 @@ li:hover {
 }
 
 .navbar-container {
-  border: 1px solid black;
   display: flex;
   width: 100vw;
   justify-content: space-between;
@@ -80,21 +82,58 @@ li:hover {
 .login-container,
 .signup-container {
   width: 100%;
-  border: 1px solid black;
   display: flex;
   flex-direction: column;
   text-align: center;
   gap: 1rem;
-  padding: 10px;
+  padding: 20px;
   background: white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  border-radius: 20px;
+  min-height: 20vh;
+  max-height: 40vh;
+  width: 15vw;
+  max-width: 25vw;
+}
+
+.login-container input,
+.signup-container input {
+  font-size: 1rem;
+  padding: 5px;
+  border-radius: 2px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid lightgray;
+}
+
+.login-container button,
+.signup-container button {
+  border: none;
+  padding: 10px;
+  border-radius: 45px;
+  outline: none;
+  cursor: pointer;
+}
+
+.login-container button:hover,
+.signup-container button:hover {
+  background: rgb(0, 172, 237);
+  color: white;
+}
+
+span {
+  color: rgb(0, 172, 237);
+  font-weight: bold;
 }
 
 .home-container {
-  min-width: 33vw;
+  width: 33vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   background: white;
+  border-right: 1px solid lightgray;
 }
 
 .home-header {
@@ -169,6 +208,7 @@ li:hover {
 
 .tweet {
   margin-top: 1vh;
+
   border: 1px solid lightgray;
 }
 
@@ -212,7 +252,6 @@ li:hover {
 
 .searchbar-container input {
   border: none;
-
   border-radius: 45px;
   font-size: 14px;
   outline: none;
@@ -232,14 +271,13 @@ li:hover {
 
 .trending-container {
   height: 100vh;
-  border: 1px solid black;
   min-width: 33vw;
 }
 
 .trending {
   margin: 0px 15px 15px 15px;
   width: 55%;
-  height: 60vh;
+  height: 65vh;
   background: rgba(225, 232, 237, 0.5);
   border-radius: 30px;
 }
@@ -251,4 +289,62 @@ li:hover {
 
 .trending-header {
   border-bottom: 1px solid lightgray;
+}
+
+.trending-content {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  max-height: 65vh;
+}
+
+.trending-item {
+  display: flex;
+  border-bottom: 1px solid lightgray;
+  width: 90%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.trending-item-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 70%;
+}
+
+.trending-item-content p {
+  font-size: 0.9rem;
+}
+
+.trending-item-image img {
+  height: 80px;
+  width: 80px;
+  border-radius: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(0, 172, 237);
+}
+
+.logout-container {
+  height: 5vh;
+  width: 12vw;
+  border-radius: 45px;
+  display: flex;
+  background: rgba(225, 232, 237, 0.5);
+}
+
+.logout-container button {
+  width: 100%;
+  border-radius: 45px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.home {
+  display: flex;
 }

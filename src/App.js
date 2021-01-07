@@ -24,13 +24,7 @@ function App() {
     authListener();
   }, []);
 
-  return (
-    <div className="App">
-      <SideBar />
-      {user ? <Home /> : <Login />}
-      <Trending />
-    </div>
-  );
+  return <div className="App">{user ? <Home /> : <Login />}</div>;
 }
 
 export default App;

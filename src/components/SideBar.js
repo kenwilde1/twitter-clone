@@ -38,10 +38,10 @@ const SideBar = () => {
           <li>
             <i class="fas fa-ellipsis-h"></i>More
           </li>
-          <li>
-            <button onClick={logout}>Log Out</button>
-          </li>
         </ul>
+        <div className="logout-container">
+          <button onClick={logout}>Log Out</button>
+        </div>
       </div>
     </div>
   );

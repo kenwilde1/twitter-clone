@@ -37,7 +37,9 @@ const Login = () => {
     <div className="entry-container">
       {logOrSign ? (
         <div className="login-container">
-          <h2>Log In to Twitter</h2>
+          <h2>
+            Log In to <span>Twitter</span>
+          </h2>
           <input
             type="text"
             id="input-email"

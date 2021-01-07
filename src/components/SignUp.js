@@ -47,6 +47,15 @@ const SignUp = () => {
           tweets: firebase.firestore.FieldValue.arrayUnion(),
         });
 
+        fire
+          .firestore()
+          .colletion("user-data")
+          .doc(userInfo.email)
+          .add({
+            name: userInfo.name,
+            handle: userInfo.name.toLowerCase().split(" ").join(""),
+          });
+
         return result.user.updateProfile({
           displayName: userInfo.name,
         });
@@ -58,7 +67,9 @@ const SignUp = () => {
 
   return (
     <div className="signup-container">
-      <h2>Sign Up to Twitter</h2>
+      <h2>
+        Sign Up to <span>Twitter</span>
+      </h2>
       <input
         type="text"
         id="input-name"
