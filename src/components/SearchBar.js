@@ -1,7 +1,5 @@
 import fire from "../config/Firebase";
 import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-import Profile from "./Profile";
 
 const SearchBar = () => {
   const [users, setUsers] = useState([]);
@@ -20,10 +18,6 @@ const SearchBar = () => {
           ]);
         });
       });
-  };
-
-  const visitProfile = (e) => {
-    console.log(e.target.innerHTML);
   };
 
   useEffect(() => {
@@ -54,8 +48,8 @@ const SearchBar = () => {
             .map((user) => {
               return (
                 <div className="user-search-result">
-                  <p className="user-search-handle" onClick={visitProfile}>
-                    @{user.id}
+                  <p className="user-search-handle">
+                    @{user.name.split(" ").join("").toLowerCase()}
                   </p>
                   <p>Name: {user.name}</p>
                 </div>

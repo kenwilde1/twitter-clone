@@ -1,8 +1,7 @@
 import fire from "../config/Firebase";
-import { useEffect, useState } from "react";
-import user from "../user.png";
+import { useState } from "react";
 
-const Tweet = () => {
+const MobileTweet = () => {
   const [tweet, setTweet] = useState("");
 
   const db = fire.firestore();
@@ -43,8 +42,8 @@ const Tweet = () => {
   };
 
   return (
-    <div className="tweet-container">
-      <div className="tweet-container-one">
+    <div className="mobile-tweet-container">
+      <div className="mobile-tweet-container-one">
         <img
           src={fire.auth().currentUser.photoURL}
           alt="profile"
@@ -52,15 +51,15 @@ const Tweet = () => {
         ></img>
         <input
           type="textarea"
-          id="input-tweet"
           onChange={handleChange}
+          id="mobile-input-tweet"
           placeholder="What's happening?"
         ></input>
       </div>
-      <div className="tweet-container-two">
+      <div className="mobile-tweet-container-two">
         <button onClick={createTweet}>Tweet</button>
       </div>
     </div>
   );
 };
-export default Tweet;
+export default MobileTweet;

@@ -40,7 +40,10 @@ const SideBar = () => {
           </li>
         </ul>
         <div className="logout-container">
-          <button onClick={logout}>Log Out</button>
+          <button onClick={logout}>
+            <img src={fire.auth().currentUser.photoURL} />
+            Log Out
+          </button>
         </div>
       </div>
     </div>

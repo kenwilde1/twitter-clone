@@ -191,6 +191,10 @@ span {
   cursor: pointer;
 }
 
+.tweet-container-two button:hover {
+  background: rgba(192, 222, 237, 1);
+}
+
 .profile-pic {
   height: 50px;
   width: 50px;
@@ -208,7 +212,6 @@ span {
 
 .tweet {
   margin-top: 1vh;
-
   border: 1px solid lightgray;
 }
 
@@ -335,6 +338,12 @@ a {
   border-radius: 45px;
   display: flex;
   background: rgba(225, 232, 237, 0.5);
+  justify-content: center;
+}
+
+.logout-container button:hover {
+  background: rgb(0, 172, 237);
+  color: white;
 }
 
 .logout-container button {
@@ -343,8 +352,126 @@ a {
   border: none;
   outline: none;
   cursor: pointer;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.logout-img {
+  margin-left: 20px;
+  margin-top: 7px;
+}
+
+.logout-container img {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
 }
 
 .home {
   display: flex;
+}
+
+.mobile-tweet-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 25%;
+
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  border-radius: 20px;
+  height: 200px;
+  width: 400px;
+
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.mobile-tweet-container-one input {
+  height: 5vh;
+  border: none;
+  border-bottom: 1px solid lightgray;
+  outline: none;
+  width: 100%;
+  font-size: 1.5rem;
+  overflow: hidden;
+}
+
+.mobile-tweet-container-two button {
+  border: none;
+  background: rgb(0, 172, 237);
+  border-radius: 45px;
+  color: white;
+  padding: 10px 20px 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.mobile-tweet-container-two button:hover {
+  background: rgba(192, 222, 237, 1);
+}
+
+.mobile-tweet {
+  display: none;
+  height: 80px;
+  width: 80px;
+  border: none;
+  color: #1da1f2;
+  font-size: 2.5rem;
+  border-radius: 50%;
+}
+
+@media (max-width: 600px) {
+  /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+  .home-container {
+    width: 100vw;
+    flex-direction: column;
+  }
+  .sidebar-container {
+    display: none;
+  }
+  .trending-container {
+    display: none;
+  }
+  .tweet-container {
+    display: none;
+  }
+  .home {
+    margin-top: -130px;
+  }
+  .mobile-tweet {
+    display: flex;
+    position: absolute;
+    top: 80%;
+    left: 82%;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 172, 237, 0.2);
+    cursor: pointer;
+    outline: none;
+  }
+}
+
+@media (max-width: 320px) {
+  /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+}
+@media (max-width: 480px) {
+  /* smartphones, Android phones, landscape iPhone */
+  .mobile-tweet-container {
+    height: 200px;
+    width: 350px;
+  }
+
+  .mobile-tweet {
+    top: 80%;
+    left: 75%;
+  }
 }

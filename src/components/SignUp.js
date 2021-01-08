@@ -31,33 +31,41 @@ const SignUp = () => {
       .auth()
       .createUserWithEmailAndPassword(userInfo.email, userInfo.password)
       .then((result) => {
-        if (
-          userInfo.profilePic !=
-          "https://icon-library.com/images/default-user-icon/default-user-icon-4.jpg"
-        ) {
-          fire
-            .storage()
-            .ref("users/" + result.user.uid + "/profile.jpg")
-            .put(userInfo.profilePic)
-            .then(() => {
-              console.log("succesfully uploaded");
-            });
-        }
+        fire
+          .storage()
+          .ref("users/" + result.user.uid + "/profile.jpg")
+          .put(userInfo.profilePic)
+          .then(() => {
+            console.log("succesfully uploaded");
+
+            fire
+              .storage()
+              .ref("users/" + result.user.uid + "/profile.jpg")
+              .getDownloadURL()
+              .then((imgURL) => {
+                if (
+                  userInfo.profilePic !=
+                  "https://icon-library.com/images/default-user-icon/default-user-icon-4.jpg"
+                ) {
+                  result.user.updateProfile({
+                    photoURL: imgURL,
+                    displayName: userInfo.name,
+                  });
+                } else {
+                  result.user.updateProfile({
+                    photoURL: userInfo.profilePic,
+                    displayName: userInfo.name,
+                  });
+                }
+              });
+          });
+
         fire.firestore().collection("liked-tweets").doc(result.user.uid).set({
           tweets: firebase.firestore.FieldValue.arrayUnion(),
         });
 
-        fire
-          .firestore()
-          .colletion("user-data")
-          .doc(userInfo.email)
-          .add({
-            name: userInfo.name,
-            handle: userInfo.name.toLowerCase().split(" ").join(""),
-          });
-
-        return result.user.updateProfile({
-          displayName: userInfo.name,
+        fire.firestore().collection("user-data").doc(`${userInfo.email}`).set({
+          name: userInfo.name,
         });
       })
       .catch((error) => {

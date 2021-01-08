@@ -1,7 +1,6 @@
 import fire from "../config/Firebase";
 import firebase from "firebase/app";
 import { useState, useEffect } from "react";
-import user from "../user.png";
 import calculateTimestamp from "../utilities/calculateTimestamp";
 import calculateFormat from "../utilities/calculateOrder";
 
@@ -14,7 +13,6 @@ const TweetContainer = () => {
     db.collection(`master-collection`).onSnapshot((querySnapshot) => {
       setTweets([]);
       querySnapshot.forEach((doc) => {
-        console.log(doc.data());
         setTweets((prevArray) => [
           ...prevArray,
           {
@@ -50,8 +48,6 @@ const TweetContainer = () => {
           .doc(`${fire.auth().currentUser.uid}`)
           .get()
           .then((doc) => {
-            console.log(tweetToUpdate);
-            console.log(doc.data());
             if (!doc.data().tweets.includes(tweetToUpdate)) {
               db.collection("master-collection")
                 .doc(tweetToUpdate)
@@ -83,10 +79,7 @@ const TweetContainer = () => {
           <div className="tweet">
             <div className="tweet-header">
               <img
-                src={
-                  tweet.photoURL ||
-                  "https://www.xovi.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png"
-                }
+                src={tweet.photoURL}
                 alt="profile"
                 className="tweet-profile"
               ></img>
