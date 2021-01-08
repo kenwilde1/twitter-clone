@@ -22,3 +22,19 @@ This will run the project in development mode at localhost:3000
 
 ## Preview
 
+### Sign Up
+User can sign up using their Name, Email, Password and Profile Picture (optional). Firebase will then handle authentication.
+
+![signup-preview](https://github.com/kenwilde1/twitter-clone/blob/main/src/images/home.png?raw=true)
+
+### Login
+User can log in Email and Password. Firebase will then handle authentication.
+
+![login-preview](https://github.com/kenwilde1/twitter-clone/blob/main/src/images/signup.png?raw=true)
+
+### Home
+Once succesfully authenticated with Firebase Auth, the user will be brought to the home page where they can view and create Tweets. 
+
+![home-preview](https://github.com/kenwilde1/twitter-clone/blob/main/src/images/login.png?raw=true)
+
+
