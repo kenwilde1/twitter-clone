@@ -1,6 +1,5 @@
 import fire from "../config/Firebase";
 import { useState, useEffect } from "react";
-import user from "../user.png";
 import firebase from "firebase/app";
 
 const SignUp = () => {
