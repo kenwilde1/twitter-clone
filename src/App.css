@@ -93,8 +93,8 @@ li:hover {
   border-radius: 20px;
   min-height: 20vh;
   max-height: 40vh;
-  width: 15vw;
-  max-width: 25vw;
+  min-width: 15vw;
+  max-width: 80vw;
 }
 
 .login-container input,
