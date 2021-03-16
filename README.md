@@ -6,7 +6,7 @@ Twitter Clone web application that implements basic Twitter functionality such a
 
 The application was bootstrapped using create-react-app and the back-end was handled by Firebase. The app was then built and deployed to Netlify. 
 
-You can view the live version [here](https://kenwilde-twitter-clone.netlify.app/).
+You can view the live version [here](https://tranquil-tor-07896.herokuapp.com).
 
 ## Try It Yourself
 
