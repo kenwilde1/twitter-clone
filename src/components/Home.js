@@ -12,17 +12,23 @@ const Home = () => {
     setMobileClicked((x) => !x);
   };
 
+  const isMobile = () => {
+    if (mobileClicked) {
+      return <MobileTweet />;
+    }
+  };
+
   return (
     <div className="home">
       <SideBar />
       <div className="home-container">
         <div className="home-header">
           <h4>Home</h4>
-          <button class="mobile-tweet" onClick={toggleMobileTweet}>
-            <i class="fab fa-twitter"></i>
+          <button className="mobile-tweet" onClick={toggleMobileTweet}>
+            <i className="fab fa-twitter"></i>
             <p>+</p>
           </button>
-          {mobileClicked ? <MobileTweet /> : console.log("no")}
+          {isMobile()}
         </div>
         <Tweet />
         <TweetContainer />

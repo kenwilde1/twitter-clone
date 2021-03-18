@@ -26,7 +26,7 @@ const SearchBar = () => {
 
   return (
     <div className="searchbar-container">
-      <span class="fa fa-search"></span>
+      <span className="fa fa-search"></span>
       <input
         type="text"
         onChange={(e) => {
@@ -34,28 +34,27 @@ const SearchBar = () => {
         }}
         placeholder="Search Twitter"
       ></input>
-      {searchTerm !== ""
-        ? users
-            .filter((val) => {
-              if (searchTerm === "") {
-                return val;
-              } else if (
-                val.name.toLowerCase().includes(searchTerm.toLowerCase())
-              ) {
-                return val;
-              }
-            })
-            .map((user) => {
-              return (
-                <div className="user-search-result">
-                  <p className="user-search-handle">
-                    @{user.name.split(" ").join("").toLowerCase()}
-                  </p>
-                  <p>Name: {user.name}</p>
-                </div>
-              );
-            })
-        : console.log("no")}
+      {searchTerm !== "" &&
+        users
+          .filter((val) => {
+            if (searchTerm === "") {
+              return val;
+            } else if (
+              val.name.toLowerCase().includes(searchTerm.toLowerCase())
+            ) {
+              return val;
+            }
+          })
+          .map((user) => {
+            return (
+              <div className="user-search-result">
+                <p className="user-search-handle">
+                  @{user.name.split(" ").join("").toLowerCase()}
+                </p>
+                <p>Name: {user.name}</p>
+              </div>
+            );
+          })}
     </div>
   );
 };

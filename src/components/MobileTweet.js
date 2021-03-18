@@ -11,11 +11,11 @@ const MobileTweet = () => {
   };
 
   const createTweet = () => {
-    document.querySelector("#input-tweet").value = "";
+    document.querySelector(".mobile-tweet-container").classList.toggle("hide");
     const timestamp = Date.now();
 
     if (
-      fire.auth().currentUser.photoURL !=
+      fire.auth().currentUser.photoURL !==
       "https://icon-library.com/images/default-user-icon/default-user-icon-4.jpg"
     ) {
       fire

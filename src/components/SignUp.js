@@ -1,5 +1,5 @@
 import fire from "../config/Firebase";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import firebase from "firebase/app";
 
 const SignUp = () => {
@@ -43,7 +43,7 @@ const SignUp = () => {
               .getDownloadURL()
               .then((imgURL) => {
                 if (
-                  userInfo.profilePic !=
+                  userInfo.profilePic !==
                   "https://icon-library.com/images/default-user-icon/default-user-icon-4.jpg"
                 ) {
                   result.user.updateProfile({

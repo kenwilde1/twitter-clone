@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import fire from "../config/Firebase";
 import SignUp from "./SignUp";
 

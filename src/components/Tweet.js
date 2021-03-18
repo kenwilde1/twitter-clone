@@ -1,6 +1,5 @@
 import fire from "../config/Firebase";
-import { useEffect, useState } from "react";
-import user from "../user.png";
+import { useState } from "react";
 
 const Tweet = () => {
   const [tweet, setTweet] = useState("");
@@ -16,7 +15,7 @@ const Tweet = () => {
     const timestamp = Date.now();
 
     if (
-      fire.auth().currentUser.photoURL !=
+      fire.auth().currentUser.photoURL !==
       "https://icon-library.com/images/default-user-icon/default-user-icon-4.jpg"
     ) {
       fire

@@ -10,38 +10,38 @@ const SideBar = () => {
       <div className="sidebar-list-container">
         <ul>
           <li className="logo">
-            <i class="fab fa-twitter"></i>
+            <i className="fab fa-twitter"></i>
           </li>
           <li>
-            <i class="fas fa-home"></i>
+            <i className="fas fa-home"></i>
             Home
           </li>
           <li>
-            <i class="fas fa-bell"></i>
+            <i className="fas fa-bell"></i>
             <p>Notifications</p>
           </li>
           <li>
-            <i class="fas fa-hashtag"></i>Explore
+            <i className="fas fa-hashtag"></i>Explore
           </li>
           <li>
-            <i class="far fa-envelope"></i>Messages
+            <i className="far fa-envelope"></i>Messages
           </li>
           <li>
-            <i class="far fa-bookmark"></i>Bookmarks
+            <i className="far fa-bookmark"></i>Bookmarks
           </li>
           <li>
-            <i class="far fa-list-alt"></i>Lists
+            <i className="far fa-list-alt"></i>Lists
           </li>
           <li>
-            <i class="far fa-user"></i>Profile
+            <i className="far fa-user"></i>Profile
           </li>
           <li>
-            <i class="fas fa-ellipsis-h"></i>More
+            <i className="fas fa-ellipsis-h"></i>More
           </li>
         </ul>
         <div className="logout-container">
           <button onClick={logout}>
-            <img src={fire.auth().currentUser.photoURL} />
+            <img src={fire.auth().currentUser.photoURL} alt="profile-pic" />
             Log Out
           </button>
         </div>

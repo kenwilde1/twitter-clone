@@ -76,7 +76,7 @@ const TweetContainer = () => {
       {tweets
         .sort((a, b) => (a.timestamp > b.timestamp ? 1 : -1))
         .map((tweet) => (
-          <div className="tweet">
+          <div key={tweet.originalTimestamp} className="tweet">
             <div className="tweet-header">
               <img
                 src={tweet.photoURL}
@@ -95,7 +95,7 @@ const TweetContainer = () => {
               id={tweet.originalTimestamp}
               onClick={addLike}
             >
-              <i class="far fa-heart"></i>
+              <i className="far fa-heart"></i>
               <p>{tweet.likes}</p>
             </div>
           </div>

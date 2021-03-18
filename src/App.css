@@ -92,7 +92,7 @@ li:hover {
     rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   border-radius: 20px;
   min-height: 20vh;
-  max-height: 40vh;
+  max-height: 50vh;
   min-width: 15vw;
   max-width: 80vw;
 }
@@ -280,9 +280,11 @@ span {
 .trending {
   margin: 0px 15px 15px 15px;
   width: 55%;
-  height: 65vh;
+  min-height: 65vh;
+  max-height: 90vh;
   background: rgba(225, 232, 237, 0.5);
   border-radius: 30px;
+  overflow: hidden;
 }
 
 .trending h3 {
@@ -418,6 +420,9 @@ a {
 .mobile-tweet-container-two button:hover {
   background: rgba(192, 222, 237, 1);
 }
+.hide {
+  display: none;
+}
 
 .mobile-tweet {
   display: none;
@@ -429,7 +434,25 @@ a {
   border-radius: 50%;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1450px) {
+  .trending-container {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .trending-container {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 950px) {
+  .trending-content {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 950px) {
   /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
   .home-container {
     width: 100vw;
@@ -460,9 +483,6 @@ a {
   }
 }
 
-@media (max-width: 320px) {
-  /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-}
 @media (max-width: 480px) {
   /* smartphones, Android phones, landscape iPhone */
   .mobile-tweet-container {
